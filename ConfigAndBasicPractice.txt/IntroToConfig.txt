@@ -1,0 +1,59 @@
+When you install Ansible like any other software on your machine, It creates a default config file at the location /etc/ansible/ansible.cfg
+
+The config file would be having the several sections.
+Includes:
+        [defaults]
+        [inventory]
+        [privilege_escalation]
+        [paramiko_conection]
+        [ssh_connection]
+        [persistent_connection]
+        [colors] 
+
+In each sections you   would be having number of options and values most of them being on the default section[]!
+
+
+How to work with Config files:  
+    Sometimes we might be required to do differnt different functions on the different different playbools based on the requirements example,
+    1. You might want different timeout for the db servers. [/opt/web-playbooks]
+    2. You might be wanting to store log file on differnt location [/opt/network_playbooks]
+
+In that case, you can just copy the the default config file /etc/ansible/ansible.cfg into each of those playbook dirs [/opt/web-playbooks] and [/opt/network_playbooks].
+Then we can do the necessary changes in them. So next time you run the playbook it will pick the config file that present in the respective playbook dirs.
+
+If there is a case, where you may be want to use a single modified config file [/opt/ansible-web.cfg] for the multiple playbooks, you have to chage the env variable,
+
+            ANSIBLE_CONFIG=/opt/ansible-web.cfg ansible-playbook play
+
+How ansible knows what config file it have to choose? On what order it would take?
+
+        1. It overrides the file mentioned on the $ANSIBLE_CONFIG env variable.
+        2. Followed by the ansible.cfg on the current playbook directory from which the ansible playbooks are run.
+        3. Followed by the cfg file mentioned on the user's home dir.
+        4. Lastly, it would come to /etc/ansible/ansible.cfg the default file.
+
+        You just need to mpodify the parameter you have to change on the config files, so that it could override and the rest of the values would be taken from the other priority config files.
+
+If you want to change the very minimum parameters then you dont need to use/duplicate the entire config file from the default location. You just need to change the env variables.
+
+    Now, How coul dyou figureout what could be the respective variable names for the each parameters?
+        Simple!
+            Example:   
+                    If the parameter name is "gathering", then the env variable would be "ANSIBLE_GATHERING".
+                        You can chnge the parameter by, setting the env variable before runing the playbook.
+                        lnapa013#> ANSIBLE_GATHERING=<value/>
+
+                Multiple ways of setting the env variable:
+                    1. ANSIBLE_GATHERING=<value/> - One time use.
+                    2. export ANSIBLE_GATHERING=<value/>
+                       ansible-playbook playbok.yml - Valid until the session is open!
+                    3. Crete a local copy of the default config file on the required playbook folder and modify the parameter [2 nd level priority]
+
+How do you find out what is the different confid options are?
+    lnapa03#> ansible-config list - List out all the configs files in the entire server.
+    lnapa03#> ansible-config view - To get the active config file.
+    lnapa03#> ansible-config dump - List out the current settings the ansible has been picked up and from where it is picked up from?
+
+            
+
+

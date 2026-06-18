@@ -1,0 +1,105 @@
+Ansible playbooks are written in yaml only!
+
+WHAT IS Yaml?
+
+JUST A KEY VALUE PAIR THING!
+
+!!!!! There must be a space after the colon on all the key value pair !!!!!
+
+How Array/List is represented?
+
+"-" indicates the elements of the array!
+
+Array1.yaml
+Fruits:
+    - Orange
+    - Apple
+    - Banana
+
+Array2.yaml
+Vegetables:
+    - Carrot
+    - Onion
+    - Tomato
+
+How Dictionary/Map is represented?
+
+Dict1.yaml
+Banana:
+    Calories: 105
+    Fat: 0.4 g
+    Carbs: 27 g
+
+Dict2.yaml
+Grape:
+    Calories: 62
+    Fat: 0.4 g
+    Carbs: 16 g
+
+!!!!!! EQUAL NUMNBER OF BLANK SPACE IS MANDAROTY!!!!!
+
+Spaces in yaml:
+
+Take Dicvt2.yaml,
+If the file looks like,
+
+Grape:
+    Calories: 62
+     Fat: 0.4 g
+     Carbs: 16 g
+
+One space on before Fat and Carbs themn this will become the properties of "Calories"! Or it will thorows a syntax error as Calories is already having the value.
+
+Another Value:
+
+Fruits.yaml:
+
+Fruits:
+    - Banana:
+        Calories: 105
+        Fat: 0.4 g
+        Carbs: 27 g
+    - Grape:
+        Calories: 62
+        Fat: 0.4 g
+        Carbs: 16 g
+
+Contains the list of Fruits with the nutirent info in each fruit.
+
+cars.yaml
+
+    - color: Blue
+      Model:
+        Name: Corvette
+        Model: 1995
+      Transmission: Manual
+      Price: 2000
+
+    - color: Red
+      Model:
+        Name: Corvette
+        Model: 1995
+      Transmission: Manual
+      Price: 2000
+
+Key Notes:
+    Dictionary can be unordered.
+            Example if you are comparing the two dicts..
+
+                Banana:
+                    Calories: 105
+                    Fat: 0.4 g
+                    Carbs: 27 g
+                
+                AND...
+
+                Banana:
+                    Calories: 105
+                    Carbs: 27 g
+                    Fat: 0.4 g
+
+            Both are equal only, eventhough the order is mismatching!
+
+            But It does applicable to List.
+
+"#" Is consedered as a comment operator!

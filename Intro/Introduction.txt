@@ -1,0 +1,18 @@
+<Lecture #1 />
+Lets see how to get started with the Ansible.
+
+You will learn Yaml
+
+<Lecture #2/>
+
+Why Ansibkle?
+
+To reduce the repetetive tasls on the multiple servers.
+
+It is a powerful IT Automation tool.
+
+Just by changing the host name you could be able to exceute patches or sec updates and many more! In a matter of minutes.
+
+We can set trigger the jobs to be done like git commit or push or any other workflow updates.
+
+<Lecture #3 />
