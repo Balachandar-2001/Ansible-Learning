@@ -1,0 +1,57 @@
+GROUPING HELPS TO MINIMIZE THE TIME BY SEGGREGATING THE SERVERS ON THE BASIS OF LOCATION, USAGE OR ANYTHING.
+
+If you labled all the web server on the simple web server label, then you want to update the web servers only then you can do it on a single go.
+
+Why Parent Child relationship?
+
+What if the servers has been deployed on the different locartions?
+
+You can create a Parent group called the WebSevers, and inside you can sggregate for the location based web servers.
+    Example:
+        WebServer:  
+            WebServer_US:
+                <server1/>
+                <server2/>
+                .
+                .
+                .
+            WebServer_Australia:    
+                <server3/>
+                <server4/>
+                .
+                .
+                .
+
+
+In INI Format, the group names would be mentioned inside the []s and server list would comes down.
+    Example:
+        [mail]
+                server1.company.com
+                server2.company.com
+        [database]
+                server3.company.com
+                server4.company.com
+        
+But in YAML file,
+format goes like....
+
+all:
+    children:
+        webservers: //Parent Group Name.
+            children:
+                webserver_us:
+                    hosts:
+                        server1.us.com:
+                            ansible_host: 192.168.4.33
+                        server2.us.com:
+                            ansible_host: 192.168.4.34
+                webserver_eu:
+                    hosts:
+                        server3.eu.com:
+                            ansible_host: 192.168.4.35
+                        server3.eu.com:
+                            ansible_host: 192.168.4.36
+
+IN YAML FORMAT "host" is the keyword to define a server. and "children" would be used to define the children.
+
+

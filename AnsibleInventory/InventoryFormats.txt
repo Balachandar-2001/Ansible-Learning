@@ -1,0 +1,7 @@
+IN MNCs There woule be the complex Infra format but where as in a Startup, Infra would be minimum.
+
+In those complex charts/infra, YAML file comes in.
+
+TWO TYPES OF INVENTORY FORMATS:
+    1. INI - Simplest and straightforward
+    2. YAML - For Complex charts/infra.

@@ -1,0 +1,37 @@
+ANSIBLE CAN RUN THE SAME PROCESS ON THE MULTIPLE SERVERS FROM THE SINGLE NODE/SERVER IN OUR SAME INFRA.
+
+IT REQUIRES THE PROPER CONNECTIVITY ESTABLISHMENT BETWEEN THE SERVERS.
+
+ANSIBLE IS PURE AGENTLESS - THAT MEANS YOU DONT NEED TO INSTALL ANY AGENTS OR SOFTWARES ON THE REMOTE MACHINE TO OPERATE OR INSTALL THE SOFTWARE.
+
+A SIMPLE SSL CONNECTIVITY IS ENOUGH.
+
+TO KNOW ABOUT THE SERVERS/HOSTS INVENTORY FILE WOULD BE MAINTAINED.
+IF NO INVENTORY HAS BEEN CREATED, ANSIBLE WOULD USE THE DEFAULT INVEMNTORY FILE LOCATED AT "/etc/hosts/ansible"
+
+Inventory file!
+
+    An Inventory file is would be like an ini format. Simple contains the list of servers. And can be grouped under the single name!
+        Example:
+            prod.company.com
+            ppd.company.com
+            [mail]
+                server1.company.com
+                server2.company.com
+            [database]
+                server3.company.com
+                server4.company.com
+
+        ALIAS - Naming the server on INVEMNTORY file!
+            Example:
+                web ansible_host=server1.company.com
+                db ansible_host=server2.company.com
+                web2 ansible_host=server3.company.com
+
+            // WE CAN USE IP ADDRESS while defining the ansible_host.
+
+    Other Inventory Parameters!
+        ansible_port - Defines which port need to connect to. By default the port would be 22.
+        ansible_connection - defines the type of connection - ssh for linux, and winrm for windows or it can be localhost too!
+        ansible_ssh_pass,
+        ansible_user - User we use to make remote connection. 
