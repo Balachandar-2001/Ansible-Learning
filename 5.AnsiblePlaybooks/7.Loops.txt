@@ -1,0 +1,131 @@
+FOR EXAMPLE YOU ARE CREATING MULTIPLE USERS ON THE SERVER.
+
+WE CANT DEFINE THAT MUCH TASKS ON THE SINGLE playbook
+
+HERE WE CAN USE LOOPS.
+
+WHENEVER UOU USE LOOP, It uses the variable named "item"
+
+FOR EXAMPLE:
+
+    - name: create users 
+      hosts: localhost
+      tasks:
+      - user: name='{{ item }}'  state=present
+        loop:
+            - joe
+            - ravi
+            - bala
+            - pavi
+            - kiran
+            - ansi 
+            - asik
+            - ghuhan
+
+    Decoding......
+
+        - name: create users 
+          hosts: localhost
+          tasks:
+            - var: item=joe
+              user: name='{{ item }}'  state=present
+
+            - var: item=ravi
+              user: name='{{ item }}'  state=present
+              .
+              .
+              .
+              .
+              .
+              .
+              .
+              goes on...
+
+
+YOU CAN DICT ON LOOPS IF YOU NEED TO DO PASS MULTIPLE ITEMS.
+
+        loop:
+            - name: joe
+              uid: 1003
+            - name: ravi
+              uid: 1004
+            - name: bala
+              uid: 1005
+            - name: ghuhan
+              uid: 1006
+
+        
+
+        Now the data can be accessed by item DECODING!!!
+
+            - var: 
+                item
+                    name:joe
+                    uid:1003
+                    user: name='{{ item.name }}'  state=present uid='{{ item.uid }}'
+
+            - var: 
+                item
+                    name:ravi
+                    uid:1004
+                    user: name='{{ item.name }}'  state=present uid='{{ item.uid }}'
+
+            
+        .
+        .
+        .
+        .
+        .
+        goes on...
+    // WE CAN ALSO USE THE PROPER DICTIONARIES LIKE..
+    - { name: joe, uid: 1003 }
+    - { name: ravi, uid: 1004}
+
+    This works as the same
+
+ANORTHER WAY OF LOOPING USING with_items.
+
+    - name: create users 
+      hosts: localhost
+      tasks:
+      - user: name='{{ item }}'  state=present
+        loop:
+            - joe
+            - ravi
+            - bala
+            - pavi
+            - kiran
+            - ansi 
+            - asik
+            - ghuhan
+
+
+    Similar to:
+
+    - name: create users 
+      hosts: localhost
+      tasks:
+      - user: name='{{ item }}'  state=present
+        with_items:
+            - joe
+            - ravi
+            - bala
+            - pavi
+            - kiran
+            - ansi 
+            - asik
+            - ghuhan
+
+These are for the items like user defined text, numbers..like that
+What if you want to loop the  file dirs?
+
+Use with_file.
+
+with_file:
+    - "/etc/hosts"
+    - "opt/mc"
+    - "/etc/uop.yaml"
+
+Like this there are many usabilities on with_
+
+Please refer the docs.

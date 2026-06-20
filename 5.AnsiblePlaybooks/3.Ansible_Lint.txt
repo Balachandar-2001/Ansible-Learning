@@ -1,0 +1,5 @@
+Catches the stle related issues, deprecated modules, intendation issues
+
+How to exceute?
+
+lnnapa101#> ansible-lint style_example.yaml

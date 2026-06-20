@@ -1,0 +1,26 @@
+You are having the 2 playbooks
+
+Both will install nginx on the servers.
+
+But, First file is for debian servers, second is for Redhat servers.
+
+The only difference is the apt/yum package managers on the both playbooks.
+
+Now how to use the single playbook and make it work for two OS?
+
+Using conditions.
+
+Example:
+    combine the single file,
+    tasks:
+      apt:
+        - name: Install nginx on debian
+          state: present
+      when: ansible_os_family == "Debian" //when condition
+
+      yum:
+        - name: Install nginx on redhat
+          state: present
+      when: ansible_os_family == "RedHat" // when condition
+
+WE CAN USE AND and OR operators on the when parameter!

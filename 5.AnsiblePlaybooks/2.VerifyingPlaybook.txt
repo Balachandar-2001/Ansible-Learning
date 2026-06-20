@@ -1,0 +1,25 @@
+TO BUILD A CONFIDENCE THAT ANSIBLE RUN WOULD BEHAVE EXACTLY AS LIKE EXPECTED YOU HAVE TO TEST IT!
+
+How to verify playbooks?
+
+2 modes are there.
+
+1. Check mode.
+    Ansible's dry run, where no actual change are made on hosts
+    Allows preview of playbook changes without applying them.
+    Use the --check option to run a playbook in check mode
+    Not all the modules support --check, the modules which doesn't support check mode would be skipped.
+
+2. Diff mode:
+    Provides a before-and-after comparison of playbook changes.
+    Understand and verify the impact of playbook changes before applying them.
+    Utilize the --diff option to run a playbook in diff mode.
+
+we can use both check and diff option on a single go!
+
+Syntax check of yaml file!
+
+        lnnapa101#>configure_nginx.yaml --syntax-check
+
+
+

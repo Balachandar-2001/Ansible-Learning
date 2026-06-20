@@ -1,5 +1,22 @@
 IN MNCs There woule be the complex Infra format but where as in a Startup, Infra would be minimum.
 
+
+THE BASIC CONFIG FILE FORMAT"
+
+- name: This is the start of Play 1  # <-- Dash starts a new Play
+  hosts: all
+  become: true                       # No dash: This describes Play 1
+
+  tasks:                             # No dash: This introduces the list of tasks
+    - name: This is Task 1           # <-- Dash starts a new Task item
+      ansible.builtin.command: date  # No dash: This describes Task 1
+
+    - name: This is Task 2           # <-- Dash starts another new Task item
+      ansible.builtin.apt:           # No dash: This describes Task 2
+        name: nginx
+        state: present
+
+
 In those complex charts/infra, YAML file comes in.
 
 TWO TYPES OF INVENTORY FORMATS:

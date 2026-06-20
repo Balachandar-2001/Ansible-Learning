@@ -1,0 +1,4 @@
+Imagine there are the mix of servers with different os families.
+
+
+on the when parameter make use of the ansible_facts variable.

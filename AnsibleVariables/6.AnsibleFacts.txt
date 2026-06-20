@@ -1,2 +1,0 @@
-When you run the playbook and ansible connects to the target machine, it first collect the info about the machine hardwares, network configs..etc.
-

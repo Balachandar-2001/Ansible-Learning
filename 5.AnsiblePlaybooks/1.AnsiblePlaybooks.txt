@@ -1,0 +1,30 @@
+ALL PLAYBOOK ARE WRIITEN ON YAML FILE.
+
+Play - Defines a set of activities or tasks to be run on hosts.
+
+Task - An action to be performed on the host like exectuing the command..etc.
+
+Whatever the hosts we are using on the playbook file must be written on the inventory file.
+
+Modules:
+    There are modules that helps to run the tasks on the server.
+        tasks:
+            - name: Execute date command
+              command: date
+            - name: Exec Script
+              script: test_script.sh
+            - name: Install packages
+              yum:
+                name: httpd
+                state: present
+            - name: Start web server
+              service
+                name: httpd
+                state: started.
+
+    here command, yum, service, script are the modules there are many more to explore
+
+
+How to run the ansible?
+
+lnnapa101#>ansible-playbook <playbook_filename>

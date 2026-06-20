@@ -1,0 +1,20 @@
+MODULES HELP TO PERFORM SERVER LEVEL OPERATIONS.
+
+1. SYSTEM:
+        To perform the SYSTEM level operations such as User config, networking, disk management, service managements etc.
+2. COMMANDS"
+        Used to excete the command on the host.
+3.FILES:
+        To file operations.
+4.DATABASE:
+        Help to working with db services.
+5.CLOUD:
+        To Perform the could operations.
+6.WINDOWS:
+        To work on WINDOWS environments.
+
+and more....
+
+
+To run the script on the remote server, you don't need to keep shell file on al the remote servers you just keep the script file on the Ansible server thats it.
+

@@ -1,0 +1,10 @@
+When you run the playbook and ansible connects to the target machine, it first collect the info about the machine hardwares, network configs..etc. Basically the OS info
+
+these info is called Ansible Facts
+
+All those info would be stored on the variable name: ansible_facts
+
+if the playbook have 
+    gather_facts: no
+
+on the playbook, then no facts would be collected!
