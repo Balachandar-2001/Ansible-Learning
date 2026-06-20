@@ -1,0 +1,15 @@
+HOW WOULD YOU ACCESS THE VARIABLE DEFINED ON ONE HOST FROM THE ANOTHER HOST.
+
+- debug:
+    msg: '{{ hostvars['web2'].dns_server }}' - This would help to retrive the variable/any ansible parameter related to other hosts.
+
+This can also be written as:
+
+- debug:
+    msg: '{{ hostvars['web2']['dns_server'] }}'
+
+
+This is one way to get the values.
+
+Another way is there and that is called Groups:
+

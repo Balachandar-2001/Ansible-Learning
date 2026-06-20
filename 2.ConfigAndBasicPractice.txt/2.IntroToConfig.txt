@@ -14,7 +14,7 @@ In each sections you   would be having number of options and values most of them
 
 
 How to work with Config files:  
-    Sometimes we might be required to do differnt different functions on the different different playbools based on the requirements example,
+    Sometimes we might be required to do differnt different functions on the different different playbooks based on the requirements example,
     1. You might want different timeout for the db servers. [/opt/web-playbooks]
     2. You might be wanting to store log file on differnt location [/opt/network_playbooks]
 
@@ -36,7 +36,7 @@ How ansible knows what config file it have to choose? On what order it would tak
 
 If you want to change the very minimum parameters then you dont need to use/duplicate the entire config file from the default location. You just need to change the env variables.
 
-    Now, How coul dyou figureout what could be the respective variable names for the each parameters?
+    Now, How could you figureout what could be the respective variable names for the each parameters?
         Simple!
             Example:   
                     If the parameter name is "gathering", then the env variable would be "ANSIBLE_GATHERING".

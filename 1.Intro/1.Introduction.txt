@@ -7,7 +7,7 @@ You will learn Yaml
 
 Why Ansibkle?
 
-To reduce the repetetive tasls on the multiple servers.
+To reduce the repetetive tasks on the multiple servers.
 
 It is a powerful IT Automation tool.
 

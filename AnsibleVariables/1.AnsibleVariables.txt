@@ -1,0 +1,30 @@
+VARIABLES IN ANSIBLE ARE THE ONE WHICH STORES THE INFORMATION ABOUT HOST, USERNAME or PASSWORDS THAT MAY DIFFER FOR EACH SERVER.
+
+TO STORE THE VARIABLE ON THE PLAYBOOK.yml file, use "vars" object. 
+Example:
+    Playbook.yml:
+        - name: Add DNS
+          hosts: localhost
+          vars: // Define Vars inside it.
+            dns_server: 10.1.250.10
+          tasks:
+            - lineinfile:
+                path: /etc/resolve.conf
+                line: 'namespace 10.1.250.10'
+
+HOW TO USE THE VARIABLE ON THE YAML FILE?
+
+SYNTAX:
+        lineinfile:
+            path: /etc/resolve.conf
+            line: 'namespace {{ dns_server }}' //dns_server variable. This is called "Jinja2 Templating"
+
+PROPER USAGE OF JINJA2 TEMPLATING:
+
+Correct Use:
+        source: '{{dns_server}}'
+        source: Something{{ dns_server }}Something
+
+Incorrect Use:
+        source: {{ dns_server }}
+

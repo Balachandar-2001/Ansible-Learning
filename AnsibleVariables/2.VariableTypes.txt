@@ -1,0 +1,38 @@
+There are three types of variables on the playbook.
+
+
+STRING:
+        CONSEQUENCES OF CHARACTERS.
+            Example:
+                - username: admin
+
+
+
+NUMBERS:
+        CAN HOLD INT, FLOAT AND ALSOCAN BE USED ON MATHEMATICAL OPERATIONS:
+            Example:
+                - max_connections: 100
+
+BOOLEAN VARIABLES:
+        CAN HOLD THE TRUE OR FALSE VALUES. OFTEN USED ON CONDITIONAL STATEMENTS
+            Example:
+                debug_mode: TRUE
+
+LIST VARIABLES:
+        CAN HOLD ORDERED COLLECTION OF VALUES. IT CAN BE OF ANY TYPES.
+            Example:
+                packages:
+                    - nginx
+                    - postgresql
+                    - git
+
+            You can access it using the index // {{ packages[0] }} -> returns nginx.
+
+DICTIONARY VARIABLES
+        CAN HOLS THE COLLECTION OF KEY VALUE PAIR:
+            Example:
+                user:
+                    name: "admin"
+                    password: "admin@123"
+                
+            You can access it using the key. // {{ user.name }} -> returns admin.
