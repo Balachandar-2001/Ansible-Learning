@@ -1,0 +1,14 @@
+You are a Network Engineer you have to automate the config and management of the network devices.
+
+Major Network collection providers:
+        1. cisco
+        2. juniper
+        3. arista
+
+    To install the collection,
+        lnnapa101#> ansible-galaxy collection network.cisco
+
+    You can use the collection later on your playbooks.
+
+Ansible Collections are the package of roles, modules, plugins etc
+It is self contained - easily accessible and sharable.

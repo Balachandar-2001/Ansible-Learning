@@ -1,0 +1,61 @@
+WHEN YOU HAVE TO INSTALL THE SAME THING AGAIN AND AGAIN ON THE PARTICULAER SERVER (DB SERVERS For Example), You have to create a role and can reuse it!
+
+Here we are configuration on the MySQL at the db servers and saving it as the roles for the future purposes.
+
+MYSQL-Role:
+
+    tasks:
+     - name: Installing Pre Req
+       yum: name=pre-req-packages state=present
+
+     - name: Install MySQL Packages
+       yum: name=mysql state=present
+
+     - name: Configure DB
+       yum: name=db1 state=present
+    
+    And You Can use this on playbook as:
+
+        - name: Instal and Config MySQL
+          hosts: db-server1.....db_server2 //irrespective of number of hosts name
+          roles:
+            - mysql // role name
+
+
+This is the primary purpose the role.
+
+In Ansible roles could be onthe proper format,
+
+You can split it into the roles like:
+
+tasks, vars, defaults, handlers, templates - under each dirs.
+
+Ansible Galaxy is having many roles that we may need for our project You can browse it on the web.
+
+lnnapa101#> ansible-galaxy init mysql //this will create the roles and its required dirs.
+
+How to use the roles?
+
+1. We can copy the entire roles dir under the folder called "roles" inside our playbook dir.
+
+        MyPlaybook --> roles --> mysql{tasks, handlers, templates, vars, defaults..}
+
+2. We can put all the roles on the common dir 
+
+        /etc/ansible/roles
+
+        Later you have to give roles_path = /etc/ansible/roles on the ansible.cfg file.
+
+Roles help you to reuse and share it to the multiple users on the globe.
+
+To install the ansible roles from the ansible-galaxy,
+
+        lnnapa101#> ansible-galaxy install <role_name>
+
+This will keep the files on the default ansible roles dir /etc/ansible/roles.
+
+To keep it on the current Playbook dir,
+
+        lnnapa101#> ansible-galaxy install <role_name> -p ./roles
+
+Nandri!

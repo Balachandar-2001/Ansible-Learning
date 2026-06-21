@@ -17,4 +17,3 @@ and more....
 
 
 To run the script on the remote server, you don't need to keep shell file on al the remote servers you just keep the script file on the Ansible server thats it.
-

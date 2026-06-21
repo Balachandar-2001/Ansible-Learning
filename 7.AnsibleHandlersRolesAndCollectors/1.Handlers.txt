@@ -1,0 +1,29 @@
+YOU MAY BE NEED TO FREQUENTLY CHANGE THE CONFIG OF YOUR WEB APP SERVERS.
+
+HERE AFTER EVERY CHANGED YOU MAY NEED TO RESTART THE WEB SERVICES ONE BY ONE MANUALLY - BECOMES TIME CONSUMING AND THERE IS A CHANCE OF BREAKIG THINGS.
+
+HERE COMES THE HANDLERS!
+
+SO IN HANDLERS, 
+
+    Whenever you change the config file in the playbook run, in the server the handler may trigger the automatic restart of the Web server service.
+
+
+    Handlers are the special tasks on Ansible. Syntax:
+
+        - name: Deploy Application
+          hosts: application_servers
+          tasks:
+            - name: Copy the FILES
+              copy:
+                src: app_code/
+                dest: /opt/application/
+              notify: Restart Application Service
+
+          handlers:
+            - name: Restart Application Service  // same as given in notify.
+              service:
+                name: application_service
+                state: restarted
+
+        This ensures that once the file is copied, application service would restart automatically!
